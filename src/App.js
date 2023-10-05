@@ -52,10 +52,10 @@ const App = (props) => {
         <Header />
         {/* <Switch> */}
         <Routes>
-          <Route exact path="/" render={() => <Posts posts={posts} />} />
+          <Route exact path="/" element={<Posts posts={posts} />} />
           <Route
             path="/post/:postSlug"
-            render={(props) => {
+            element={(props) => {
               const post = posts.find(
                 (post) => post.slug === props.match.params.postSlug
               );
@@ -65,9 +65,9 @@ const App = (props) => {
           <Route
             exact
             path="/new"
-            render={() => <PostForm addNewPost={addNewPost} />}
+            element={<PostForm addNewPost={addNewPost} />}
           />
-          <Route component={NotFound} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         {/* </Switch> */}
       </div>

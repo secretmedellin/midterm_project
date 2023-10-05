@@ -8,7 +8,7 @@ const PostForm = ({ addNewPost }) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [saved, setSaved] = useState(false);
-
+  const navigate = useNavigate();
   const handlePostForm = (event) => {
     event.preventDefault();
     if (title) {
@@ -23,7 +23,7 @@ const PostForm = ({ addNewPost }) => {
     }
   };
   if (saved === true) {
-    return <useNavigate to="/" />;
+    navigate("/");
   }
   return (
     <form className="container" onSubmit={handlePostForm}>
@@ -40,11 +40,7 @@ const PostForm = ({ addNewPost }) => {
       <p>
         <label htmlFor="form-content">Content:</label>
       </p>
-      <Quill
-        onChange={(content, delta, source, editor) => {
-          setContent(editor.getContents());
-        }}
-      />
+      <Quill value={content} onChange={(value) => setContent(value)} />
       <p>
         <button type="submit">Save</button>
       </p>
