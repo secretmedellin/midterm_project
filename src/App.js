@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,7 +12,7 @@ import Post from "./components/Post";
 import PostForm from "./components/PostForm";
 import NotFound from "./components/NotFound";
 
-import "./App.css";
+// import "./App.css";
 
 const App = (props) => {
   const [posts, setPosts] = useState([
@@ -45,6 +46,12 @@ const App = (props) => {
     );
     setPosts([...posts, post]);
   };
+  // useEffect(() => {
+  //   console.log("useEffect");
+  //   fetch("https://jsonplaceholder.typicode.com/posts")
+  //     .then((response) => response.json())
+  //     .then((json) => console.log(json));
+  // }, []);
 
   return (
     <Router>

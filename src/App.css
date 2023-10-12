@@ -1,4 +1,10 @@
 .App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #353944;
+  background-color: #f5f5f5;
 }
 
 .App a {
